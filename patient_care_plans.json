@@ -1,7 +1,0 @@
-[
-    {
-        "title": "Abdominal Pain",
-        "keywords": "abdominal pain chart",
-        "chart": "graph TD\n    A[Abdominal Pain] --> B{Standard of Care};\n    B --> C{Secondary Survey};\n    C --> D{Consider underlying causes:\n        - AAA\n        - Ectopic Pregnancy\n        - GI Bleed\n        - Bowel Obstruction\n        - Cardiac Ischemia};\n    D --> E[Transport];"
-    }
-]
