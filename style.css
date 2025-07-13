@@ -1,0 +1,10 @@
+.sidebar-link.active { background-color: #007bff; color: #ffffff; font-weight: 600; }
+.sidebar-link.active:hover { background-color: #0056b3; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.accordion-content ul { list-style-type: none; padding-left: 0; }
+.accordion-content h4 { color: #f8f9fa; font-weight: 600; margin-top: 1rem; margin-bottom: 0.75rem; }
+.accordion-content li { display: flex; align-items: flex-start; margin-bottom: 0.75rem; }
+.accordion-content li svg { flex-shrink: 0; width: 1.25rem; height: 1.25rem; margin-right: 0.75rem; margin-top: 0.125rem; }
+.accordion-toggle svg.indicator { transition: transform 0.3s; }
+.accordion-toggle[aria-expanded="true"] svg.indicator { transform: rotate(180deg); }
