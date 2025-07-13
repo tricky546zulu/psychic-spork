@@ -6,126 +6,81 @@
     <title>Saskatchewan Paramedic Protocols</title>
     
     <!-- PWA Manifest and Themeing -->
-    <meta name="theme-color" content="#343a40">
-    <link rel="apple-touch-icon" href="https://placehold.co/192x192/007bff/ffffff?text=SPP">
-    <link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIlNhc2thdGNoZXdhbiBQYXJhbWVkaWMgUHJvdG9jb2xzIiwKICAic2hvcnRfbmFtZSI6ICJTYXNrIFByb3RvY29scyIsCiAgInN0YXJ0X3VybCI6ICIuIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMjEyNTI5IiwKICAidGhlbWVfY29vb3IiOiAiIzM0M2E0MCIsCiAgImRlc2NyaXB0aW9uIjogIkEgcXVpY2sgcmVmZXJlbmNlIGFwcCBmb3IgU2Fza2F0Y2hld2FuIFBhcmFtZWRpYyBQcm90b2NvbHMuIiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiaHR0cHM6Ly9wbGFjZWhvbGQuY28vMTkyeDE5Mi8wMDdiZmYvZmZmZmZmP3RleHQ9U1BQIiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9wbmciCiAgICB9LAogICAgewogICAgICAic3JjIjogImh0dHBzOi8vcGxhY2Vob2xkLmNvLzUxMng1MTIvMDA3YmZmL2ZmZmZmZj90ZXh0PVNQUCIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIgogICAgfQogIF0KfQo=">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="https://placehold.co/192x192/06b6d4/ffffff?text=SPP">
+    <link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIlNhc2thdGNoZXdhbiBQYXJhbWVkaWMgUHJvdG9jb2xzIiwKICAic2hvcnRfbmFtZSI6ICJTYXNrIFByb3RvY29scyIsCiAgInN0YXJ0X3VybCI6ICIuIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMGYxNzJhIiwKICAidGhlbWVfY29vb3IiOiAiIzBmMTcyYSIsCiAgImRlc2NyaXB0aW9uIjogIkEgcXVpY2sgcmVmZXJlbmNlIGFwcCBmb3IgU2Fza2F0Y2hld2FuIFBhcmFtZWRpYyBQcm90b2NvbHMuIiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiaHR0cHM6Ly9wbGFjZWhvbGQuY28vMTkyeDE5Mi8wNmI2ZDQvZmZmZmZmP3RleHQ9U1BQIiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9wbmciCiAgICB9LAogICAgewogICAgICAic3JjIjogImh0dHBzOi8vcGxhY2Vob2xkLmNvLzUxMng1MTIvMDZiNmQ0L2ZmZmZmZj90ZXh0PVNQUCIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIgogICAgfQogIF0KfQo=">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Custom Tailwind Configuration -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'emr-level': '#16a34a', 
-                        'pcp-level': '#f59e0b', 
-                        'icp-level': '#ea580c', 
-                        'acp-level': '#dc2626', 
-                        'theme-header': '#343a40',
-                        'theme-sidebar': '#343a40',
-                        'theme-bg': '#212529',
-                        'theme-content': '#343a40',
-                        'theme-blue': '#007bff',
-                        'theme-blue-darker': '#0056b3',
-                        'theme-text': '#dee2e6',
-                        'theme-heading': '#f8f9fa',
-                        'theme-warning': '#ffc107',
-                        'theme-danger': '#dc3545',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="font-sans antialiased bg-theme-bg text-theme-text">
-    <div id="app" class="min-h-screen flex flex-col">
+<body class="bg-slate-900 text-slate-300">
+
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-5xl">
+
         <!-- Header -->
-        <header class="bg-theme-header text-white p-3 shadow-md grid grid-cols-3 items-center sticky top-0 z-50">
-            <div class="flex items-center">
-                <a href="#home" class="flex items-center truncate">
-                    <img src="https://placehold.co/40x40/ffffff/343a40?text=SP" alt="Logo" class="h-8 w-8 rounded-full mr-3 flex-shrink-0">
-                    <h1 class="text-lg md:text-xl font-bold text-theme-heading hidden sm:block truncate">Saskatchewan Paramedic Protocols</h1>
-                </a>
-            </div>
-            <div class="hidden md:flex justify-center">
-                <div class="relative w-full max-w-lg">
-                    <input type="text" id="search-input-desktop" placeholder="Search Protocols..." class="w-full p-2 pl-10 rounded-md bg-gray-700 text-white border-gray-600 focus:outline-none focus:ring-2 focus:ring-theme-blue">
-                    <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+        <header class="sticky-header">
+            <div class="px-4 py-5 sm:px-6 lg:px-8">
+                <div class="flex items-center gap-4">
+                     <div class="flex-shrink-0">
+                        <svg class="h-10 w-10 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v18M9.75 3v18M15.75 3v18M21.75 3v18M3.75 9h18M3.75 15h18" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl sm:text-3xl font-bold text-slate-200 tracking-tight">Saskatchewan Paramedic Protocols</h1>
+                        <p class="mt-1 text-sm text-slate-400">Rapid access protocol reference for EMS professionals.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="flex justify-end">
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-white/10 focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
+
+                <!-- Search Input -->
+                <div class="mt-5 relative">
+                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+                        <svg class="h-5 w-5 text-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <input type="text" id="search-input" placeholder="Search by name, keyword, etc..." class="block w-full rounded-lg border-0 bg-slate-800 py-3.5 pl-11 pr-4 text-slate-200 ring-1 ring-inset ring-slate-700 placeholder:text-slate-500 focus:ring-2 focus:ring-inset focus:ring-cyan-500 sm:text-sm sm:leading-6 focus:outline-none">
+                </div>
             </div>
         </header>
 
         <!-- Main Content -->
-        <div class="flex flex-1">
-            <!-- Sidebar -->
-            <nav id="sidebar" class="w-64 bg-theme-sidebar p-4 shadow-lg fixed md:relative inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-40 overflow-y-auto no-scrollbar">
-                <div class="pt-16 md:pt-4">
-                    <div class="md:hidden mb-4">
-                         <div class="relative">
-                            <input type="text" id="search-input-mobile" placeholder="Search Protocols..." class="w-full p-2 pl-10 rounded-md bg-gray-700 text-white border-gray-600 focus:outline-none focus:ring-2 focus:ring-theme-blue">
-                            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
-                        </div>
-                    </div>
-                    <ul class="space-y-1">
-                        <li><a href="#home" class="sidebar-link block p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white font-semibold">Home</a></li>
-                        <li class="pt-4"><h3 class="px-2 text-xs font-bold text-gray-500 uppercase tracking-wider">Protocols</h3></li>
-                        <li><a href="#procedures" class="sidebar-link block p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Procedures</a></li>
-                        <li><a href="#patient-care-plans" class="sidebar-link block p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Patient Care Plans</a></li>
-                        <li><a href="#medications" class="sidebar-link block p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Medications</a></li>
-                        <li class="pt-4"><h3 class="px-2 text-xs font-bold text-gray-500 uppercase tracking-wider">Reference</h3></li>
-                        <li><a href="#policies" class="sidebar-link block p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Policies</a></li>
-                        <li><a href="#version-controls" class="sidebar-link block p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Version Controls</a></li>
-                        <li><a href="#licence-levels" class="sidebar-link block p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Licence Levels</a></li>
-                    </ul>
-                </div>
-            </nav>
+        <main id="content-display" class="p-4 sm:p-6 lg:p-8 space-y-4">
+            <section id="home" class="protocol-section bg-slate-800 p-6 rounded-lg shadow-md mb-8">
+                <h2 class="text-3xl font-bold mb-4 text-slate-200">Welcome to the Digital Protocol Manual</h2>
+                <p class="mb-4">This tool provides rapid access to the Saskatchewan Paramedic Clinical Practice Protocols. Use the search bar to find a specific protocol.</p>
+                <p class="text-slate-400">All content is intended for reference by qualified medical professionals. Always adhere to the latest official version and exercise clinical judgment.</p>
+            </section>
 
-            <!-- Content Area -->
-            <main id="main-content" class="flex-1 p-4 sm:p-6 md:p-8 overflow-y-auto">
-                <section id="home" class="protocol-section bg-theme-content p-6 rounded-lg shadow-md mb-8">
-                    <h2 class="text-3xl font-bold mb-4 text-theme-heading">Welcome to the Digital Protocol Manual</h2>
-                    <p class="mb-4">This tool provides rapid access to the Saskatchewan Paramedic Clinical Practice Protocols. Use the navigation sidebar to browse categories or the search bar to find a specific protocol.</p>
-                    <p class="text-gray-400">All content is intended for reference by qualified medical professionals. Always adhere to the latest official version and exercise clinical judgment.</p>
-                </section>
+            <div id="procedures-content-wrapper" class="space-y-4"></div>
+            <div id="policies-content-wrapper" class="space-y-4"></div>
 
-                <div id="content-display">
-                    <section id="procedures" class="protocol-section mb-8">
-                        <h2 class="text-2xl font-bold mb-4 text-theme-heading sticky top-[68px] bg-theme-bg py-2 z-10">Procedures</h2>
-                        <div id="procedures-content-wrapper" class="space-y-4"></div>
-                    </section>
-                    <section id="policies" class="protocol-section mb-8">
-                        <h2 class="text-2xl font-bold mb-4 text-theme-heading sticky top-[68px] bg-theme-bg py-2 z-10">Policies</h2>
-                        <div id="policies-content-wrapper" class="space-y-4"></div>
-                    </section>
-                    <div id="no-results" class="hidden text-center py-10">
-                        <h3 class="text-xl font-semibold text-theme-heading">No Protocols Found</h3>
-                        <p class="text-gray-400 mt-2">Your search did not match any protocols. Please try different keywords.</p>
-                    </div>
-                </div>
-            </main>
-        </div>
-        
-        <button id="back-to-top" class="hidden fixed bottom-5 right-5 bg-theme-blue text-white p-3 rounded-full shadow-lg hover:bg-theme-blue-darker focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-theme-blue">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>
-        </button>
+            <div id="no-results" class="hidden text-center py-16 px-6">
+                <svg class="mx-auto h-12 w-12 text-slate-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+                <h3 class="mt-2 text-lg font-semibold text-slate-300">No Protocols Found</h3>
+                <p class="mt-1 text-sm text-slate-400">Your search did not match any protocols. Please try again.</p>
+            </div>
+        </main>
+
     </div>
+
+    <!-- Footer with Disclaimer -->
+    <footer class="border-t border-slate-800 mt-12">
+        <div class="container mx-auto max-w-5xl py-8 px-4 sm:px-6 lg:px-8 text-center text-slate-500">
+            <h4 class="font-semibold text-slate-400 mb-2">Legal Disclaimer</h4>
+            <p class="text-xs max-w-3xl mx-auto">
+                This guide is intended for rapid reference and educational purposes only. It is not a substitute for the official Saskatchewan College of Paramedics (SCoP) Clinical Practice Protocols, medical direction, or professional clinical judgment. The user assumes full responsibility for the accurate administration of any medication. Always refer to the most current official protocols and consult with medical control as required. The developers of this tool are not liable for any errors, omissions, or for any outcomes resulting from the use of this information.
+            </p>
+        </div>
+    </footer>
+
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
