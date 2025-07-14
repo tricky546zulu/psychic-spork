@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <button class="accordion-toggle flex justify-between items-center w-full p-6 text-left" aria-expanded="false">
                             <div>
                                 <h3 class="text-xl font-bold text-theme-heading">${item.title}</h3>
-                                <p class="text-xs text-slate-400 mt-1">Last Updated: ${item.lastUpdated}</p>
+                                ${item.lastUpdated ? `<p class="text-xs text-slate-400 mt-1">Last Updated: ${item.lastUpdated}</p>` : ''}
                             </div>
                             <div class="flex items-center">
                                 <button class="favorite-toggle p-2 rounded-full hover:bg-slate-700">
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // --- Medication Data ---
             function populateMedications() {
                 const wrapper = document.getElementById('medications-content-wrapper');
-                if (!wrapper) return;
+                if (!wrapper || !window.medicationData) return;
 
                 medicationData.forEach(med => {
                     const accordionItem = document.createElement('div');
@@ -251,8 +251,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const allContentSections = document.querySelectorAll('.protocol-section');
 
             // --- Event Listeners ---
+            let lastSearchTerm = '';
             function handleSearch(event) {
                 const searchTerm = event.target.value.toLowerCase().trim();
+                if (searchTerm === lastSearchTerm) return;
+                lastSearchTerm = searchTerm;
 
                 if (event.target.id === 'search-input-desktop') searchInputMobile.value = searchTerm;
                 else searchInputDesktop.value = searchTerm;
