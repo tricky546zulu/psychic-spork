@@ -12,6 +12,7 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="medication-data.js"></script>
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -323,49 +324,43 @@
             }
 
             // --- Medication Data ---
-            const medicationData = [
-                { name: 'Acetylsalicylic Acid (ASA)', protocols: ['Acute Coronary Syndromes (ACS)'] },
-                { name: 'Adenosine', protocols: ['Tachycardia'] },
-                { name: 'Amyl Nitrate', protocols: ['Cyanide Poisoning'] },
-                { name: 'Benzodiazepines', protocols: ['Agitated Patients', 'Alcohol Withdrawal', 'Pain Management', 'Seizure'] },
-                { name: 'Calcium', protocols: ['Hyperkalemia'] },
-                { name: 'Dextrose', protocols: ['Hypoglycemic'] },
-                { name: 'Epinephrine', protocols: ['Allergic / Anaphylaxis Reaction', 'Asthma / COPD', 'Asystole/PEA', 'Bradycardia', 'Ventricular Fibrillation / Pulseless Ventricular Tachycardia'] },
-                { name: 'Glucagon', protocols: ['Hypoglycemic'] },
-                { name: 'Ipratropium Bromide', protocols: ['Asthma / COPD'] },
-                { name: 'Ketamine', protocols: ['Pain Management'] },
-                { name: 'Lidocaine', protocols: ['Vascular Access (Intraosseous)'] },
-                { name: 'Magnesium Sulfate', protocols: ['Asthma / COPD', 'Pre-Eclampsia/Eclampsia', 'Tachycardia', 'Ventricular Fibrillation / Pulseless Ventricular Tachycardia'] },
-                { name: 'Naloxone', protocols: ['Unconscious Unknown Etiology'] },
-                { name: 'Nitroglycerin', protocols: ['Acute Coronary Syndromes (ACS)', 'Pulmonary Edema'] },
-                { name: 'Salbutamol', protocols: ['Asthma / COPD', 'Hyperkalemia', 'Near Drowning'] },
-                { name: 'Sodium Bicarbonate', protocols: ['Cyclic Antidepressant Overdose', 'Hyperkalemia'] },
-                { name: 'Tranexamic Acid (TXA)', protocols: ['Childbirth (Obstetrics)', 'Shock'] },
-            ];
+            const medicationData = newMedications;
 
             function populateMedications() {
                 const wrapper = document.getElementById('medications-content-wrapper');
                 if (!wrapper) return;
 
                 medicationData.forEach(med => {
-                    const medItem = document.createElement('div');
-                    medItem.className = 'bg-theme-content rounded-lg shadow-md p-4';
+                    const accordionItem = document.createElement('div');
+                    accordionItem.className = 'accordion-item bg-theme-content rounded-lg shadow-md overflow-hidden';
+                    accordionItem.dataset.keywords = `${med.name} ${med.indications} ${med.contraindications}`;
 
-                    let protocolLinks = med.protocols.map(p => {
-                        const allItems = [...contentData.procedures, ...contentData.patientCarePlans, ...contentData.policies];
-                        const targetProtocol = allItems.find(item => item.title === p);
-                        if(targetProtocol) {
-                            const sectionId = getSectionIdByTitle(p);
-                            return `<a href="#${sectionId}" class="text-theme-blue hover:underline">${p}</a>`;
-                        }
-                        return p;
-                    }).join(', ');
+                    let dosingList = '';
+                    for (const [key, value] of Object.entries(med.dosing)) {
+                        dosingList += `<li><strong>${key}:</strong> ${value}</li>`;
+                    }
 
-                    medItem.innerHTML = `
-                        <h3 class="text-lg font-semibold text-theme-heading">${med.name}</h3>
-                        <p class="text-sm text-slate-400 mt-1">Referenced in: ${protocolLinks}</p>
+                    accordionItem.innerHTML = `
+                        <button class="accordion-toggle flex justify-between items-center w-full p-6 text-left" aria-expanded="false">
+                            <div>
+                                <h3 class="text-xl font-bold text-theme-heading">${med.name}</h3>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="indicator w-6 h-6 transform text-gray-400 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </button>
+                        <div class="accordion-content hidden px-6 pb-6 pt-4 border-t border-gray-700/50">
+                            <h4>Indications</h4>
+                            <ul><li>${icons.check}<span>${med.indications}</span></li></ul>
+                            <h4>Contraindications</h4>
+                            <ul><li>${icons.alert}<span>${med.contraindications}</span></li></ul>
+                            <h4>Dosing</h4>
+                            <ul>${dosingList}</ul>
+                            <h4>Route</h4>
+                            <ul><li>${icons.tools}<span>${med.route}</span></li></ul>
+                        </div>
                     `;
-                    wrapper.appendChild(medItem);
+                    wrapper.appendChild(accordionItem);
                 });
             }
 
