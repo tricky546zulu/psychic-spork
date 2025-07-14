@@ -122,10 +122,10 @@
                     </div>
                     <ul class="space-y-1">
                         <li><a href="#home" class="sidebar-link block p-2 rounded-md text-slate-300 hover:bg-slate-700 hover:text-white font-semibold">Home</a></li>
+                        <li><a href="#favorites" class="sidebar-link block p-2 rounded-md text-slate-300 hover:bg-slate-700 hover:text-white">Favorites</a></li>
                         <li class="pt-4"><h3 class="px-2 text-xs font-bold text-slate-500 uppercase tracking-wider">Protocols</h3></li>
                         <li><a href="#procedures" class="sidebar-link block p-2 rounded-md text-slate-300 hover:bg-slate-700 hover:text-white">Procedures</a></li>
                         <li><a href="#patient-care-plans" class="sidebar-link block p-2 rounded-md text-slate-300 hover:bg-slate-700 hover:text-white">Patient Care Plans</a></li>
-                        <li><a href="#medications" class="sidebar-link block p-2 rounded-md text-slate-300 hover:bg-slate-700 hover:text-white">Medications</a></li>
                         <li class="pt-4"><h3 class="px-2 text-xs font-bold text-slate-500 uppercase tracking-wider">Reference</h3></li>
                         <li><a href="#policies" class="sidebar-link block p-2 rounded-md text-slate-300 hover:bg-slate-700 hover:text-white">Policies</a></li>
                         <li><a href="#version-controls" class="sidebar-link block p-2 rounded-md text-slate-300 hover:bg-slate-700 hover:text-white">Version Controls</a></li>
@@ -143,6 +143,10 @@
                 </section>
 
                 <div id="content-display">
+                    <section id="favorites" class="protocol-section mb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-cyan-400 border-b-2 border-slate-700 pb-2 sticky top-[68px] bg-slate-900 py-2 z-10">Favorites</h2>
+                        <div id="favorites-content-wrapper" class="space-y-4"></div>
+                    </section>
                     <section id="procedures" class="protocol-section mb-8">
                         <h2 class="text-2xl font-bold mb-4 text-cyan-400 border-b-2 border-slate-700 pb-2 sticky top-[68px] bg-slate-900 py-2 z-10">Procedures</h2>
                         <div id="procedures-content-wrapper" class="space-y-4"></div>
@@ -150,6 +154,10 @@
                     <section id="patient-care-plans" class="protocol-section mb-8">
                         <h2 class="text-2xl font-bold mb-4 text-cyan-400 border-b-2 border-slate-700 pb-2 sticky top-[68px] bg-slate-900 py-2 z-10">Patient Care Plans</h2>
                         <div id="patient-care-plans-content-wrapper" class="space-y-4"></div>
+                    </section>
+                    <section id="medications" class="protocol-section mb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-cyan-400 border-b-2 border-slate-700 pb-2 sticky top-[68px] bg-slate-900 py-2 z-10">Medications</h2>
+                        <div id="medications-content-wrapper" class="space-y-4"></div>
                     </section>
                     <section id="policies" class="protocol-section mb-8">
                         <h2 class="text-2xl font-bold mb-4 text-cyan-400 border-b-2 border-slate-700 pb-2 sticky top-[68px] bg-slate-900 py-2 z-10">Policies</h2>
@@ -185,9 +193,9 @@
             // --- Dynamic Content Data ---
             const contentData = {
                 procedures: [
-                    { title: 'Airway Management (Bag Valve Mask)', keywords: 'bvm ventilation apneic', html: `<h4>Purpose</h4><ul><li>${icons.target}<span>Allows positive airway pressure to be applied to any patient not ventilating properly.</span></li></ul><h4>Registration Levels Authorized</h4><ul><li>${icons.users}<span>EMR, PCP, ICP, ACP</span></li></ul><h4>Technique</h4><ul><li>${icons.tools}<span>Choose appropriately sized mask ensuring a tight seal.</span></li><li>${icons.tools}<span>Observe for mist on the mask and expansion of the chest wall.</span></li><li>${icons.tools}<span>If available, consider using SpO2 and EtCO2 to determine effectiveness.</span></li></ul><h4>Indications</h4><ul><li>${icons.check}<span>Apneic patients.</span></li><li>${icons.check}<span>Patients with respiratory rates too slow or too fast to provide adequate tidal volume.</span></li></ul>` },
-                    { title: 'Airway Management (Endotracheal Intubation)', keywords: 'ett intubation', html: `<h4>Registration Levels Authorized</h4><ul><li>${icons.users}<span>Advanced Care Paramedic</span></li></ul><h4>Technique</h4><ul><li>${icons.tools}<span>Open airway and pre-oxygenate patient while maintaining BURP.</span></li><li>${icons.tools}<span>Verify placement of ETT using the 5-point check and EtCO2 monitor.</span></li><li>${icons.tools}<span>Always recheck and document ETT placement after every major movement.</span></li></ul><h4>Indications</h4><ul><li>${icons.check}<span>Respiratory insufficiency.</span></li><li>${icons.check}<span>Altered mental status with airway compromise.</span></li><li>${icons.check}<span>Situation requiring positive pressure ventilation.</span></li></ul>` },
-                    { title: 'Airway Management (Magill Forceps)', keywords: 'magill forceps obstruction', html: `<h4>Purpose</h4><ul><li>${icons.target}<span>Removal of airway obstructions unrelieved by abdominal or chest thrust.</span></li></ul><h4>Registration Levels Authorized</h4><ul><li>${icons.users}<span>Advanced Care Paramedic</span></li></ul><h4>Technique</h4><ul><li>${icons.tools}<span>Visualize the obstruction using a laryngoscope.</span></li><li>${icons.tools}<span>Holding the Magill forceps in the right hand, remove the obstruction.</span></li></ul><h4>Indications</h4><ul><li>${icons.check}<span>Complete airway obstruction.</span></li></ul>` },
+                    { title: 'Airway Management (Bag Valve Mask)', keywords: 'bvm ventilation apneic', lastUpdated: '2023-10-26', html: `<h4>Purpose</h4><ul><li>${icons.target}<span>Allows positive airway pressure to be applied to any patient not ventilating properly.</span></li></ul><h4>Registration Levels Authorized</h4><ul><li>${icons.users}<span>EMR, PCP, ICP, ACP</span></li></ul><h4>Technique</h4><ul><li>${icons.tools}<span>Choose appropriately sized mask ensuring a tight seal.</span></li><li>${icons.tools}<span>Observe for mist on the mask and expansion of the chest wall.</span></li><li>${icons.tools}<span>If available, consider using SpO2 and EtCO2 to determine effectiveness.</span></li></ul><h4>Indications</h4><ul><li>${icons.check}<span>Apneic patients.</span></li><li>${icons.check}<span>Patients with respiratory rates too slow or too fast to provide adequate tidal volume.</span></li></ul>` },
+                    { title: 'Airway Management (Endotracheal Intubation)', keywords: 'ett intubation', lastUpdated: '2023-10-26', html: `<h4>Registration Levels Authorized</h4><ul><li>${icons.users}<span>Advanced Care Paramedic</span></li></ul><h4>Technique</h4><ul><li>${icons.tools}<span>Open airway and pre-oxygenate patient while maintaining BURP.</span></li><li>${icons.tools}<span>Verify placement of ETT using the 5-point check and EtCO2 monitor.</span></li><li>${icons.tools}<span>Always recheck and document ETT placement after every major movement.</span></li></ul><h4>Indications</h4><ul><li>${icons.check}<span>Respiratory insufficiency.</span></li><li>${icons.check}<span>Altered mental status with airway compromise.</span></li><li>${icons.check}<span>Situation requiring positive pressure ventilation.</span></li></ul>` },
+                    { title: 'Airway Management (Magill Forceps)', keywords: 'magill forceps obstruction', lastUpdated: '2023-10-26', html: `<h4>Purpose</h4><ul><li>${icons.target}<span>Removal of airway obstructions unrelieved by abdominal or chest thrust.</span></li></ul><h4>Registration Levels Authorized</h4><ul><li>${icons.users}<span>Advanced Care Paramedic</span></li></ul><h4>Technique</h4><ul><li>${icons.tools}<span>Visualize the obstruction using a laryngoscope.</span></li><li>${icons.tools}<span>Holding the Magill forceps in the right hand, remove the obstruction.</span></li></ul><h4>Indications</h4><ul><li>${icons.check}<span>Complete airway obstruction.</span></li></ul>` },
                     { title: 'Airway Management (Medicated Facilitated Intubation)', keywords: 'mfi rsi sedation', html: `<h4>Purpose</h4><ul><li>${icons.target}<span>Difficult intubations.</span></li></ul><h4>Registration Levels Authorized</h4><ul><li>${icons.users}<span>Advanced Care Paramedic</span></li></ul><h4>Indications</h4><ul><li>${icons.check}<span>Immediate need to correct a severely compromised airway or when respiratory arrest is imminent.</span></li></ul><h4>Precautions</h4><ul><li>${icons.alert}<span>A common mistake is not allowing adequate time for sedation to take effect.</span></li><li>${icons.clock}<span>The actual intubation should take no longer than 15-20 seconds to complete.</span></li><li>${icons.alert}<span>Following 3 unsuccessful intubation attempts, a rescue airway device should be considered.</span></li></ul><h4>Special Notes</h4><ul><li>${icons.clipboard}<span>All intubated patients must have tube placement confirmed and documented using clinical criteria and ETCO2 with waveform.</span></li><li>${icons.clipboard}<span>Pediatric intubation should be deferred whenever possible.</span></li></ul>` },
                     { title: 'Airway Management (Nasal Pharyngeal Airways)', keywords: 'npa nasopharyngeal', html: `<h4>Purpose</h4><ul><li>${icons.target}<span>Used as an alternative to an OPA. Provides a conduit for airflow between the nares and the pharynx.</span></li></ul><h4>Registration Levels Authorized</h4><ul><li>${icons.users}<span>PCP, ICP, ACP</span></li></ul><h4>Technique</h4><ul><li>${icons.tools}<span>Measure NPA from the nostril to the earlobe.</span></li></ul><h4>Indications</h4><ul><li>${icons.check}<span>Can be considered when patient with an intact gag reflex will not tolerate an OPA.</span></li></ul><h4>Contraindications</h4><ul><li>${icons.alert}<span>Head trauma may allow insertion of the NPA into the cranial cavity.</span></li></ul>` },
                     { title: 'Airway Management (Oral Pharyngeal Airways)', keywords: 'opa oropharyngeal', html: `<h4>Purpose</h4><ul><li>${icons.target}<span>Adjunct for basic airway management.</span></li></ul><h4>Registration Levels Authorized</h4><ul><li>${icons.users}<span>EMR, PCP, ICP, ACP</span></li></ul><h4>Technique</h4><ul><li>${icons.tools}<span>Select appropriate size OPA, measuring from the corner of the mouth to the ear lobe.</span></li></ul><h4>Indications</h4><ul><li>${icons.check}<span>Patient is at risk of developing airway obstruction from the tongue.</span></li></ul><h4>Contraindications</h4><ul><li>${icons.alert}<span>Intact gag reflex.</span></li></ul>` },
@@ -295,8 +303,16 @@
 
                     accordionItem.innerHTML = `
                         <button class="accordion-toggle flex justify-between items-center w-full p-6 text-left" aria-expanded="false">
-                            <h3 class="text-xl font-bold text-theme-heading">${item.title}</h3>
-                            <svg class="indicator w-6 h-6 transform text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <div>
+                                <h3 class="text-xl font-bold text-theme-heading">${item.title}</h3>
+                                <p class="text-xs text-slate-400 mt-1">Last Updated: ${item.lastUpdated}</p>
+                            </div>
+                            <div class="flex items-center">
+                                <button class="favorite-toggle p-2 rounded-full hover:bg-slate-700">
+                                    <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.539 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.539-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+                                </button>
+                                <svg class="indicator w-6 h-6 transform text-gray-400 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
                         </button>
                         <div class="accordion-content hidden px-6 pb-6 pt-4 border-t border-gray-700/50">
                             ${item.html}
@@ -306,10 +322,110 @@
                 });
             }
 
+            // --- Medication Data ---
+            const medicationData = [
+                { name: 'Acetylsalicylic Acid (ASA)', protocols: ['Acute Coronary Syndromes (ACS)'] },
+                { name: 'Adenosine', protocols: ['Tachycardia'] },
+                { name: 'Amyl Nitrate', protocols: ['Cyanide Poisoning'] },
+                { name: 'Benzodiazepines', protocols: ['Agitated Patients', 'Alcohol Withdrawal', 'Pain Management', 'Seizure'] },
+                { name: 'Calcium', protocols: ['Hyperkalemia'] },
+                { name: 'Dextrose', protocols: ['Hypoglycemic'] },
+                { name: 'Epinephrine', protocols: ['Allergic / Anaphylaxis Reaction', 'Asthma / COPD', 'Asystole/PEA', 'Bradycardia', 'Ventricular Fibrillation / Pulseless Ventricular Tachycardia'] },
+                { name: 'Glucagon', protocols: ['Hypoglycemic'] },
+                { name: 'Ipratropium Bromide', protocols: ['Asthma / COPD'] },
+                { name: 'Ketamine', protocols: ['Pain Management'] },
+                { name: 'Lidocaine', protocols: ['Vascular Access (Intraosseous)'] },
+                { name: 'Magnesium Sulfate', protocols: ['Asthma / COPD', 'Pre-Eclampsia/Eclampsia', 'Tachycardia', 'Ventricular Fibrillation / Pulseless Ventricular Tachycardia'] },
+                { name: 'Naloxone', protocols: ['Unconscious Unknown Etiology'] },
+                { name: 'Nitroglycerin', protocols: ['Acute Coronary Syndromes (ACS)', 'Pulmonary Edema'] },
+                { name: 'Salbutamol', protocols: ['Asthma / COPD', 'Hyperkalemia', 'Near Drowning'] },
+                { name: 'Sodium Bicarbonate', protocols: ['Cyclic Antidepressant Overdose', 'Hyperkalemia'] },
+                { name: 'Tranexamic Acid (TXA)', protocols: ['Childbirth (Obstetrics)', 'Shock'] },
+            ];
+
+            function populateMedications() {
+                const wrapper = document.getElementById('medications-content-wrapper');
+                if (!wrapper) return;
+
+                medicationData.forEach(med => {
+                    const medItem = document.createElement('div');
+                    medItem.className = 'bg-theme-content rounded-lg shadow-md p-4';
+
+                    let protocolLinks = med.protocols.map(p => {
+                        const allItems = [...contentData.procedures, ...contentData.patientCarePlans, ...contentData.policies];
+                        const targetProtocol = allItems.find(item => item.title === p);
+                        if(targetProtocol) {
+                            const sectionId = getSectionIdByTitle(p);
+                            return `<a href="#${sectionId}" class="text-theme-blue hover:underline">${p}</a>`;
+                        }
+                        return p;
+                    }).join(', ');
+
+                    medItem.innerHTML = `
+                        <h3 class="text-lg font-semibold text-theme-heading">${med.name}</h3>
+                        <p class="text-sm text-slate-400 mt-1">Referenced in: ${protocolLinks}</p>
+                    `;
+                    wrapper.appendChild(medItem);
+                });
+            }
+
+            function getSectionIdByTitle(title) {
+                if (contentData.procedures.some(p => p.title === title)) return 'procedures';
+                if (contentData.patientCarePlans.some(p => p.title === title)) return 'patient-care-plans';
+                if (contentData.policies.some(p => p.title === title)) return 'policies';
+                return '';
+            }
+
+
             // --- Populate All Sections ---
             populateAccordion('procedures-content-wrapper', contentData.procedures);
             populateAccordion('patient-care-plans-content-wrapper', contentData.patientCarePlans);
             populateAccordion('policies-content-wrapper', contentData.policies);
+            populateMedications();
+
+            // --- Favorites Logic ---
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            const favoritesWrapper = document.getElementById('favorites-content-wrapper');
+
+            function updateFavoritesUI() {
+                document.querySelectorAll('.favorite-toggle').forEach(button => {
+                    const title = button.closest('.accordion-item').querySelector('h3').textContent;
+                    const starIcon = button.querySelector('svg');
+                    if (favorites.includes(title)) {
+                        starIcon.style.fill = '#f59e0b';
+                        starIcon.classList.add('text-yellow-500');
+                    } else {
+                        starIcon.style.fill = 'none';
+                        starIcon.classList.remove('text-yellow-500');
+                    }
+                });
+            }
+
+            function renderFavorites() {
+                favoritesWrapper.innerHTML = '';
+                if (favorites.length === 0) {
+                    favoritesWrapper.innerHTML = `<p class="text-slate-400">You haven't added any protocols to your favorites yet.</p>`;
+                    document.getElementById('favorites').style.display = 'block';
+                    return;
+                }
+
+                const allItems = [...contentData.procedures, ...contentData.patientCarePlans, ...contentData.policies];
+                const favoriteItems = allItems.filter(item => favorites.includes(item.title));
+                populateAccordion('favorites-content-wrapper', favoriteItems);
+                updateFavoritesUI();
+            }
+
+            function toggleFavorite(title) {
+                const index = favorites.indexOf(title);
+                if (index > -1) {
+                    favorites.splice(index, 1);
+                } else {
+                    favorites.push(title);
+                }
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+                updateFavoritesUI();
+                renderFavorites();
+            }
 
             // --- UI Element Selectors ---
             const searchInputDesktop = document.getElementById('search-input-desktop');
@@ -333,10 +449,22 @@
                 document.querySelectorAll('.accordion-item').forEach(content => {
                     const text = content.textContent.toLowerCase();
                     const keywords = (content.dataset.keywords || '').toLowerCase();
+                    const contentHTML = content.querySelector('.accordion-content');
+                    const originalHTML = contentHTML.innerHTML;
+
+                    // Reset content
+                    contentHTML.innerHTML = originalHTML.replace(/<mark class="bg-yellow-400 text-black">/g, "").replace(/<\/mark>/g, "");
+
 
                     if (text.includes(searchTerm) || keywords.includes(searchTerm)) {
                         content.style.display = 'block';
                         resultsFound = true;
+
+                        if (searchTerm) {
+                            const regex = new RegExp(searchTerm, 'gi');
+                            const newHTML = contentHTML.innerHTML.replace(regex, `<mark class="bg-yellow-400 text-black">$&</mark>`);
+                            contentHTML.innerHTML = newHTML;
+                        }
                     } else {
                         content.style.display = 'none';
                     }
@@ -357,6 +485,14 @@
             }
 
             document.getElementById('content-display').addEventListener('click', function(event) {
+                const favoriteToggle = event.target.closest('.favorite-toggle');
+                if (favoriteToggle) {
+                    event.stopPropagation();
+                    const title = favoriteToggle.closest('.accordion-item').querySelector('h3').textContent;
+                    toggleFavorite(title);
+                    return;
+                }
+
                 const toggle = event.target.closest('.accordion-toggle');
                 if (toggle) {
                     const allAccordions = document.querySelectorAll('.accordion-item');
@@ -397,7 +533,21 @@
                 });
             }, { rootMargin: "-40% 0px -60% 0px" });
             allContentSections.forEach(section => observer.observe(section));
+
+            // Initial Render
+            updateFavoritesUI();
+            renderFavorites();
         });
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(registration => {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
     </script>
 </body>
 </html>
