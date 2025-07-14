@@ -144,13 +144,11 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // --- Medication Data ---
-            const medicationData = newMedications;
-
             function populateMedications() {
                 const wrapper = document.getElementById('medications-content-wrapper');
                 if (!wrapper) return;
 
-                medicationData.forEach(med => {
+                newMedications.forEach(med => {
                     const accordionItem = document.createElement('div');
                     accordionItem.className = 'accordion-item bg-theme-content rounded-lg shadow-md overflow-hidden';
                     accordionItem.dataset.keywords = `${med.name} ${med.indications} ${med.contraindications}`;
