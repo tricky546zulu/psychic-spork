@@ -1,0 +1,25 @@
+{
+  "name": "psychic-spork",
+  "version": "1.0.0",
+  "description": "",
+  "main": "medication-data.js",
+  "scripts": {
+    "build": "npx tailwindcss@latest -i ./src/input.css -o ./dist/output.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tricky546zulu/psychic-spork.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tricky546zulu/psychic-spork/issues"
+  },
+  "homepage": "https://github.com/tricky546zulu/psychic-spork#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.1.11"
+  }
+}
